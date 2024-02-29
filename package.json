@@ -5,7 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "lite-server"
+    "start": "lite-server",
+    "build": "tsc -p tsconfig.json && copy index.html dist && copy app.css dist",
+    "deploy": "npm run build && gh-pages -d dist",
+    "predeploy": "npm install"
   },
   "keywords": [
     "typescript",
@@ -14,6 +17,7 @@
   "author": "Maximilian Schwarzmüller",
   "license": "ISC",
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "lite-server": "^2.5.4"
   }
 }
